@@ -38,7 +38,7 @@ export default function RecipePage({ recipe }) {
         <div id={"recipe-page__overlay"} className={"fixed inset-0 bg-body z-50 overflow-y-scroll flex flex-col items-center"}>
             <div className={"m-4 -mb-2"}>
                 <Tippy className={"tippy"} content={"close recipe page"} placement={"right"} >
-                    <button onClick={hideViewingRecipe} className={"bg-black rounded-full p-2.5"}><img src={close} alt={"close"} aria-label={"close recipe page"} width={32} height={32} className={"invert"} /></button>
+                    <button onClick={hideViewingRecipe} className={"bg-foreground rounded-full p-2.5"}><img src={close} alt={"close"} aria-label={"close recipe page"} width={32} height={32} className={"invert"} /></button>
                 </Tippy>
             </div>
             <article id={recipe.name} className={"flex flex-col gap-4 py-5"}>
