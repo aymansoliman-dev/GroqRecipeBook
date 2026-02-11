@@ -17,7 +17,7 @@ export default function Header() {
                     <NavigationBar />
                 </div>
                 <button onClick={() => setIsOpen(!isOpen)} id={"burger-menu"} className={"lg:hidden"}>
-                    <img src={isOpen? close : burger} alt={"Menu"} width={32} height={32} draggable={false} />
+                    <img src={isOpen? close : burger} alt={"Menu"} width={36} height={36} draggable={false} />
                 </button>
                 { isOpen &&
                     <div className={"lg:hidden absolute top-full right-0 left-0 z-50 bg-card p-6 border-y-2 border-border"}>
