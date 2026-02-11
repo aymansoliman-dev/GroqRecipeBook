@@ -1,0 +1,205 @@
+/* =========================
+   Fonts & Tailwind
+========================= */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Handlee&family=Playpen+Sans:wght@100..800&display=swap');
+@import "tailwindcss";
+
+/* =========================
+   Theme Variables
+========================= */
+@theme {
+    --color-secondary: hsl(36 30% 93%);
+    --color-body: #fbf8f4;
+    --color-foreground: hsl(24 10% 16%);
+    --color-muted-foreground: hsl(24 6% 50%);
+    --color-accent-foreground: hsl(0 0% 100%);
+    --color-card: hsl(40 50% 99%);
+    --color-border: hsl(24 12% 78%);
+    --color-accent: hsl(8 68% 55%);
+    --color-shadow: hsla(24 10% 16% / 0.15);
+    --color-shadow-accent: hsla(8 68% 55% / 0.6);
+    --color-primary-foreground: hsl(40 50% 99%);
+    --color-overlay: hsla(0 0% 0% / 0.5)
+}
+
+/* =========================
+   Base Elements
+========================= */
+*, *:before, *:after {
+    box-sizing: border-box
+}
+
+::selection {
+    background: var(--color-foreground);
+    color: var(--color-accent-foreground)
+}
+
+html {
+    scrollbar-width: thin;
+    scroll-behavior: smooth
+}
+
+body {
+    background: var(--color-body);
+    font-family: Caveat, Playpen Sans, Handlee, cursive;
+    font-weight: 700
+}
+
+button {
+    cursor: pointer
+}
+
+img {
+    display: block;
+    object-fit: cover;
+    vertical-align: middle;
+    user-select: none
+}
+
+.active.category {
+    box-shadow: 3px 3px var(--color-shadow-accent);
+    color: white
+}
+
+.recipe:nth-of-type(3n + 1) {
+    border-radius: 5px 16px 5px 20px / 16px 5px 20px
+}
+.recipe:nth-of-type(3n + 2) {
+    border-radius: 16px 5px 20px / 5px 20px 5px 16px
+}
+.recipe:nth-of-type(3n) {
+    border-radius: 22px 8px 18px / 8px 18px 8px 22px
+}
+
+.recipe:nth-child(3n + 1):hover {
+    transform: translateY(-4px) rotate(0.3deg);
+    border-radius: 5px 16px 5px 20px / 16px 5px 20px
+}
+.recipe:nth-child(3n + 2):hover {
+    transform: translateY(-4px) rotate(0)
+}
+.recipe:nth-child(3n):hover {
+    transform: translateY(-4px) rotate(-0.3deg)
+}
+
+.category:nth-child(3n + 1) {
+    border-radius: 5px 16px 5px 20px / 16px 5px 20px
+}
+.category:nth-child(3n + 2) {
+    border-radius: 16px 5px 20px / 5px 20px 5px 16px
+}
+.category:nth-child(3n) {
+    border-radius: 22px 8px 18px / 8px 18px 8px 22px
+}
+
+.stat:nth-child(3n + 1) {
+    border-radius: 5px 16px 5px 20px / 16px 5px 20px
+}
+.stat:nth-child(3n + 2) {
+    border-radius: 16px 5px 20px / 5px 20px 5px 16px
+}
+.stat:nth-child(3n) {
+    border-radius: 22px 8px 18px / 8px 18px 8px 22px
+}
+
+.nutrition-info:nth-child(3n + 1) {
+    border-radius: 5px 16px 5px 20px / 16px 5px 20px
+}
+.nutrition-info:nth-child(3n + 2) {
+    border-radius: 16px 5px 20px / 5px 20px 5px 16px
+}
+.nutrition-info:nth-child(3n) {
+    border-radius: 22px 8px 18px / 8px 18px 8px 22px
+}
+
+/* =========================
+   Typography Overrides
+========================= */
+p,
+nav,
+input,
+figcaption,
+.tippy,
+#copyright,
+.tag,
+.stat span:last-child,
+#ad-title > span,
+#category-browser :where(span, button),
+.recipe-info .meta-data,
+.recipe .buttons,
+.recipe-category,
+#recipe__info h2,
+#recipe__ingredients__list,
+#recipe__instructions ol,
+.nutrition-info h3,
+#recipe__tips ul,
+#recipe__stats span,
+#servings__counter > span:last-child,
+#recipe__metadata > * {
+    font-family: Playpen Sans, cursive;
+    font-weight: 400
+}
+
+/* =========================
+   Layout
+========================= */
+.container {
+    width: 90dvw;
+    margin-inline: auto
+}
+
+/* =========================
+   Sketchy Utilities
+========================= */
+.sketchy {
+    border-radius: 16px 5px 20px / 5px 20px 5px 16px
+}
+.sketchy-sm {
+    border-radius: 5px 16px 5px 20px / 16px 5px 20px
+}
+.sketchy-pill {
+    border-radius: 22px 8px 18px / 8px 18px 8px 22px
+}
+.sketchy-shadow {
+    box-shadow: 3px 3px 0 0 var(--color-shadow)
+}
+.sketchy-shadow-accent {
+    box-shadow: 3px 3px 0 0 var(--color-shadow-accent)
+}
+
+/* =========================
+   Micro Motion
+========================= */
+.wiggle-1 {
+    transform: rotate(-0.3deg)
+}
+.wiggle-2 {
+    transform: rotate(0.25deg)
+}
+.wiggle-3 {
+    transform: rotate(-60deg)
+}
+.wiggle-4 {
+    transform: rotate(0.4deg)
+}
+.transition-all {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1)
+}
+
+/* =========================
+   Viewing a Recipe
+========================= */
+
+/* Lock body scroll when overlay is open */
+body.recipe-open {
+    overflow: hidden
+}
+
+#recipe-page__overlay article, #gentle-message {
+    width: min(90vw, 900px);
+    margin-inline: auto
+}
+
+#recipe__figure figure {
+    height: min(48vh, 640px)
+}
