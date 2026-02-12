@@ -214,7 +214,7 @@ ol {
 ol li {
     counter-increment: my-counter;
     position: relative;
-    padding-left: 2.25rem
+    padding-left: 2.5rem
 }
 
 ol li::before {

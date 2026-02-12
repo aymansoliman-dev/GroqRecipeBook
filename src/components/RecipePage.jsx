@@ -103,37 +103,37 @@ export default function RecipePage({ recipe }) {
                 <div id={"recipe__info"}>
                     <div className={"flex gap-4 [&>div]:grow-1 [&>div]:shrink-0 [&>div]:p-4 [&>div]:flex [&>div]:flex-col [&>div]:gap-2 [&>div>h2]:select-none"}>
                         <div id="recipe__difficulty-level" className={"bg-card border border-border sketchy-sm"}>
-                            <h2 className={"text-xs text-gray-500"}>DIFFICULTY LEVEL</h2>
-                            <span className={"text-xl capitalize"}>{recipe.difficultyLevel}</span>
+                            <h2 className={"text-sm text-gray-500"}>DIFFICULTY LEVEL</h2>
+                            <span className={"text-lg md:text-2xl capitalize"}>{recipe.difficultyLevel}</span>
                         </div>
                         <div id="recipe__cuisine" className={"bg-card border border-border sketchy-sm"}>
-                            <h2 className={"text-xs text-gray-500"}>CUISINE</h2>
-                            <span className={"text-xl capitalize"}>{recipe.cuisine}</span>
+                            <h2 className={"text-sm text-gray-500"}>CUISINE</h2>
+                            <span className={"text-lg md:text-2xl capitalize"}>{recipe.cuisine}</span>
                         </div>
                     </div>
                 </div>
 
                 <div id={"recipe__servings"}>
-                    <div className="bg-card border border-border sketchy-sm p-4 flex flex-col gap-2 select-none">
-                        <h2 className={"text-lg"}>Adjust Servings</h2>
-                        <div id="servings__counter" className={"flex gap-4 items-center text-2xl"}>
+                    <div className="bg-card border border-border sketchy-sm p-4 flex flex-col gap-4 select-none">
+                        <h2 className={"text-2xl"}>Adjust Servings</h2>
+                        <div id="servings__counter" className={"flex gap-4 items-center text-3xl"}>
                             <button disabled={recipe.servings === 1} className={"border border-border sketchy-pill px-3 hover:bg-foreground hover:text-accent-foreground disabled:bg-gray-300 disabled:opacity-50 disabled:hover:text-foreground"} onClick={() => dispatch({ type: "decreased_no_servings" })} >-</button>
                             <span id={"servings__counter__value"}>{recipe.servings}</span>
                             <button className={"border border-border sketchy-pill px-3 hover:bg-foreground hover:text-accent-foreground"} onClick={() => dispatch({ type: "increased_no_servings" })} >+</button>
-                            <span className={"ml-auto text-xs text-muted-foreground"}>{`(from ${recipe.servings} serving${recipe.servings > 1? 's' : ''})`}</span>
+                            <span className={"ml-auto text-sm text-muted-foreground"}>{`(from ${recipe.servings} serving${recipe.servings > 1? 's' : ''})`}</span>
                         </div>
                     </div>
                 </div>
 
                 <div id={"recipe__ingredients"}>
                     <div className={"bg-card border border-border sketchy p-4 flex flex-col gap-3"}>
-                        <h2 className={"text-xl select-none"}>Ingredients</h2>
+                        <h2 className={"text-2xl select-none"}>Ingredients</h2>
                         <div id="recipe__ingredients__list" className={"grid grid-cols-1 sm:grid-cols-2 gap-2"}>
                             {
                                 recipe.ingredients.map((ingredient, index) => (
                                     <div key={'ingredient'+index} className={"ingredient flex items-center gap-2"}>
                                         <input id={index} type={"checkbox"}></input>
-                                        <label htmlFor={index} className="text-sm capitalize">
+                                        <label htmlFor={index} className="capitalize">
                                             {ingredient.amount !== null ? (
                                                 <>
                                                     <strong>
@@ -157,8 +157,8 @@ export default function RecipePage({ recipe }) {
 
                 <div id={"recipe__instructions"}>
                     <div className={"bg-card border border-border sketchy-sm p-4 pb-8 flex flex-col gap-4"}>
-                        <h2 className={"text-xl select-none"}>Instructions</h2>
-                        <ol className={"list-decimal list-inside flex flex-col gap-4"}>
+                        <h2 className={"text-2xl select-none"}>Instructions</h2>
+                        <ol className={"list-decimal list-inside flex text-sm md:text-lg flex-col gap-4"}>
                             {
                                 recipe.instructions.map((instruction, index) => (
                                     <li key={index}>{instruction}</li>
@@ -170,13 +170,13 @@ export default function RecipePage({ recipe }) {
 
                 <div id={"recipe__nutrition-info"}>
                     <div className={"bg-card border border-border sketchy p-4 flex flex-col gap-3"}>
-                        <h2 className={"text-xl select-none"}>Nutrition Info</h2>
+                        <h2 className={"text-2xl select-none"}>Nutrition Info</h2>
                         <div className={"grid grid-cols-2 grid-rows-2 gap-4 [&>div:first-child]:col-span-2"}>
                             {
                                 Object.keys(recipe.nutritionInfo).map((nutrition) => (
                                     <div key={nutrition} className={"nutrition-info bg-secondary border border-border border-dashed flex flex-col items-center justify-center gap-1 p-2"}>
-                                        <h3 className={"uppercase text-xs text-gray-500 select-none"}>{nutrition}</h3>
-                                        <span className={"text-xl font-semibold"}>{recipe.nutritionInfo[nutrition]}</span>
+                                        <h3 className={"uppercase text-sm text-gray-500 select-none"}>{nutrition}</h3>
+                                        <span className={"text-2xl font-semibold"}>{recipe.nutritionInfo[nutrition]}</span>
                                     </div>
                                 ))
                             }
@@ -188,9 +188,9 @@ export default function RecipePage({ recipe }) {
                     <div className={"bg-card border border-border sketchy-sm p-4 flex flex-col gap-3"}>
                         <div className={"flex items-center gap-2"}>
                             <img src={lamp} alt={"lamp"} draggable={false} width={24} height={24} />
-                            <h2 className={"text-xl select-none"}>Chef's Tips</h2>
+                            <h2 className={"text-2xl select-none"}>Chef's Tips</h2>
                         </div>
-                        <ul id={"recipe__tips__list"} className={"list-disc list-inside text-sm pl-8 flex flex-col gap-2"}>
+                        <ul id={"recipe__tips__list"} className={"list-disc list-inside text-lg pl-8 flex flex-col gap-2"}>
                             {
                                 recipe.tips.map((tip, index) => (
                                     <li key={index} className={"text-xs sm:text-sm"}>{tip}</li>
