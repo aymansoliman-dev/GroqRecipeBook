@@ -41,10 +41,10 @@ export default function RecipePage({ recipe }) {
                     <button onClick={hideViewingRecipe} className={"bg-foreground rounded-full p-2.5"}><img src={close} alt={"close"} aria-label={"close recipe page"} width={32} height={32} className={"invert w-6 lg:w-8 aspect-square"} /></button>
                 </Tippy>
             </div>
-            <article id={recipe.name} className={"flex flex-col gap-4 py-5"}>
+            <article id={recipe.name} className={"flex flex-col gap-4 pb-5"}>
                 <div id={"recipe__figure"}>
                     <div className={"flex flex-col md:flex-row gap-4 p-4 bg-card border border-border sketchy-shadow sketchy"}>
-                        <figure className={"w-full md:w-1/2 overflow-hidden p-[3px] bg-border sketchy-pill"}>
+                        <figure className={"w-full md:w-auto md:h-full overflow-hidden p-[3px] bg-border sketchy-pill"}>
                             <img src={recipe.image} alt={recipe.name} draggable={false} onContextMenu={(e) => e.preventDefault()} className={"sketchy h-full w-full object-cover"} />
                         </figure>
                         <div className={"flex flex-col gap-4 justify-between"}>
@@ -53,7 +53,7 @@ export default function RecipePage({ recipe }) {
                                 <span className={"sketchy-pill bg-secondary px-3 py-1 border-border border uppercase"} >{recipe.cuisine}</span>
                             </div>
                             <div id="recipe__name-and-description" className={"flex flex-col gap-2"}>
-                                <h1 className={"capitalize text-xl sm:text-2xl md:3xl"}>{recipe.name}</h1>
+                                <h1 className={"capitalize text-2xl sm:text-3xl md:4xl"}>{recipe.name}</h1>
                                 <p className={"text-xs sm:text-sm text-muted-foreground"} >{recipe.description}</p>
                             </div>
                             <div id="recipe__rating">
