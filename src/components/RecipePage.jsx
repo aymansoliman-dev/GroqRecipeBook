@@ -47,7 +47,7 @@ export default function RecipePage({ recipe }) {
                         <figure className={"w-full md:w-auto md:h-full overflow-hidden p-[3px] bg-border sketchy-pill"}>
                             <img src={recipe.image} alt={recipe.name} draggable={false} onContextMenu={(e) => e.preventDefault()} className={"sketchy h-full w-full object-cover"} />
                         </figure>
-                        <div className={"flex flex-col gap-4 justify-between"}>
+                        <div className={"flex flex-col gap-4 justify-between grow"}>
                             <div id="recipe__metadata" className={"flex gap-3 select-none [&>span]:text-xs [&>span]:md:text-sm"}>
                                 <span className={"sketchy-pill bg-foreground px-3 py-1 text-accent-foreground uppercase"} >{recipe.category}</span>
                                 <span className={"sketchy-pill bg-secondary px-3 py-1 border-border border uppercase"} >{recipe.cuisine}</span>
