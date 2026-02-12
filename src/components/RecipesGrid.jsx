@@ -1,7 +1,7 @@
 import RecipeCard from "./RecipeCard.jsx"
 import { useRecipes } from "../context/RecipesProvider.jsx"
 
-export default function RecipesList() {
+export default function RecipesGrid() {
     const { recipes, category, searchQuery } = useRecipes()
 
     let recipesList = recipes
