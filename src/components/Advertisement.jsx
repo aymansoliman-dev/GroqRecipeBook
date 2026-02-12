@@ -1,8 +1,6 @@
 import adIcon from "../assets/ad-icon.svg"
 import chefGroq from "../assets/chef.svg"
 import link from "../assets/link.svg"
-import arrow from "../assets/arrow.svg"
-import chefGroqApp from "../assets/chef-groq-app.png"
 
 export default function Advertisement() {
     return (
@@ -28,8 +26,8 @@ export default function Advertisement() {
                 </div>
                 <a href={"https://chefgroq.vercel.app"} target={"_blank"} >
                     <figure className={"ad-image shrink-0 text-center text-muted-foreground text-sm self-center select-none"}>
-                        <div className={"sketchy-shadow sketchy p-2 bg-secondary border-border border-2 w-full lg:w-[440px]"}>
-                            <img src={chefGroqApp} alt={"Chef Groq App"} className={"w-full h-auto"} width={440} height={650} draggable={false} />
+                        <div className={"sketchy-shadow sketchy p-2 bg-secondary border-border border-2 w-full"}>
+                            <img src={'https://res.cloudinary.com/dxlofja7z/image/upload/v1769793314/Chef_Groq_gykqtk.png'} alt={"Chef Groq App"} className={"w-full h-auto"} width={440} height={650} draggable={false} />
                         </div>
                         <figcaption className={"mt-2"}>chefgroq.vercel.app</figcaption>
                     </figure>
