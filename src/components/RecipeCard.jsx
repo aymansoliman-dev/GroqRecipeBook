@@ -21,7 +21,7 @@ export default function RecipeCard({ recipe }) {
     }
 
     function viewRecipe(id) {
-        dispatch({type: "viewed_recipe", recipeId: id})
+        dispatch({type: "viewed_recipe_page", recipeId: id})
     }
 
     return (
