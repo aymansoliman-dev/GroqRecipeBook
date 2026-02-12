@@ -165,38 +165,41 @@ GroqRecipeBook/
 ├── public/
 │   ├── robots.txt              # SEO crawler instructions
 │   └── favicon files           # App icons
-│
+│  
 ├── src/
 │   ├── assets/
-│   │   └── logo.svg            # App logo
+│   │   └── asset.svg           # Every svg icon used in the App
 │   │
 │   ├── components/
+│   │   ├── Advertisement.jsx   # Recommending Chef Groq App
+│   │   ├── AIChefAssistant.jsx # Link to Chef Groq App
+│   │   ├── CategoryBrowser.jsx # Category filter buttons
+│   │   ├── Footer.jsx          # App footer
 │   │   ├── Header.jsx          # App header with branding
-│   │   ├── FilterBar.jsx       # Category filter buttons
-│   │   ├── SearchBar.jsx       # Recipe search input
-│   │   ├── RecipeGrid.jsx      # Recipe cards grid layout
+│   │   ├── Logo.jsx            # Reusable logo component
+│   │   ├── MainContent.jsx     # Main content wrapper
+│   │   ├── NavigationBar.jsx   # App navbar
 │   │   ├── RecipeCard.jsx      # Individual recipe card
 │   │   ├── RecipePage.jsx      # Full recipe detail modal
-│   │   ├── MainContent.jsx     # Main content wrapper
-│   │   └── Footer.jsx          # App footer
+│   │   ├── RecipesGrid.jsx     # Recipe cards grid layout
+│   │   ├── SearchBar.jsx       # Recipe search input
+│   │   ├── Stat.jsx            # Reusable individual stat component
+│   │   └── Stats.jsx           # Stas of your recipes
 │   │
 │   ├── context/
 │   │   └── RecipesProvider.jsx # Global state with Context + Reducer
 │   │
 │   ├── data/
-│   │   └── initialData.js      # Recipe database (15 recipes)
+│   │   └── state.js            # Recipe database (15 recipes)
 │   │
+│   ├── App.css                 # App styles
 │   ├── App.jsx                 # Root component
-│   ├── App.css                 # Global styles
-│   ├── main.jsx                # App entry point
-│   └── index.css               # Tailwind imports
+│   └── main.jsx                # App entry point 
 │
-├── index.html                   # HTML entry point with meta tags
-├── package.json                 # Dependencies and scripts
-├── tailwind.config.js           # Tailwind configuration
-├── vite.config.js               # Vite configuration
-├── postcss.config.js            # PostCSS configuration
 ├── .gitignore                   # Git ignore rules
+├── index.html                   # HTML entry point with meta tags
+├── vite.config.js               # Vite configuration
+├── package.json                 # Dependencies and scripts
 ├── LICENSE                      # MIT License
 └── README.md                    # This file
 ````
@@ -448,16 +451,6 @@ If you found this project helpful or interesting:
 - 📣 **Share it** with others learning React
 - 🐛 **Report bugs** to help improve it
 - 💡 **Suggest features** you'd like to see
-
----
-<div align="center">
-
-### Made with ❤️ and React
-
-**[⬆ Back to Top](aymansoliman-dev/GroqRecipeBook)**
-
-</div>
----
 
 ## 🎯 Don't forget to:
 
