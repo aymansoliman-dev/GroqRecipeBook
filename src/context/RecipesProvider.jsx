@@ -43,11 +43,11 @@ function recipeReducer(draft, action) {
             draft.searchQuery = action.query
             break
         }
-        case 'viewed_recipe': {
+        case 'viewed_recipe_page': {
             draft.viewingRecipeId = action.recipeId
             break
         }
-        case 'hide_recipe_page': {
+        case 'hid_recipe_page': {
             draft.viewingRecipeId = null
             break
         }
