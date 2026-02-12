@@ -194,12 +194,41 @@ figcaption,
 body.recipe-open {
     overflow: hidden
 }
-
 #recipe-page__overlay article, #gentle-message {
     width: min(90vw, 900px);
     margin-inline: auto
 }
-
 #recipe__figure figure {
     height: min(48vh, 640px)
+}
+
+/* =========================
+   Recipe Instructions ol
+========================= */
+
+ol {
+    list-style: none;
+    counter-reset: my-counter
+}
+
+ol li {
+    counter-increment: my-counter;
+    position: relative;
+    padding-left: 2.25rem
+}
+
+ol li::before {
+    content: counter(my-counter);
+    position: absolute;
+    left: 0;
+    font-size: 1rem;
+    background: var(--color-accent);
+    color: var(--color-accent-foreground);
+    width: 1.75rem;
+    height: 1.75rem;
+    line-height: 2rem;
+    border-radius: 22px 8px 18px / 8px 18px 8px 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
