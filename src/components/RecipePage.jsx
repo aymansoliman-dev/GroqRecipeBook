@@ -36,9 +36,9 @@ export default function RecipePage({ recipe }) {
 
     return (
         <div id={"recipe-page__overlay"} className={"fixed inset-0 bg-body z-50 overflow-y-scroll flex flex-col items-center"}>
-            <div className={"m-4 -mb-2"}>
+            <div className={"m-2 md:m-3 lg:m-4 sticky top-2 md:top-3 lg:top-4 z-50 select-none"}>
                 <Tippy className={"tippy"} content={"close recipe page"} placement={"right"} >
-                    <button onClick={hideViewingRecipe} className={"bg-foreground rounded-full p-2.5"}><img src={close} alt={"close"} aria-label={"close recipe page"} width={32} height={32} className={"invert"} /></button>
+                    <button onClick={hideViewingRecipe} className={"bg-foreground rounded-full p-2.5"}><img src={close} alt={"close"} aria-label={"close recipe page"} width={32} height={32} className={"invert w-6 lg:w-8 aspect-square"} /></button>
                 </Tippy>
             </div>
             <article id={recipe.name} className={"flex flex-col gap-4 py-5"}>
@@ -114,7 +114,7 @@ export default function RecipePage({ recipe }) {
                             <button disabled={recipe.servings === 1} className={"border border-border sketchy-pill px-3 hover:bg-foreground hover:text-accent-foreground disabled:bg-gray-300 disabled:opacity-50 disabled:hover:text-foreground"} onClick={() => dispatch({ type: "decreased_no_servings" })} >-</button>
                             <span id={"servings__counter__value"}>{recipe.servings}</span>
                             <button className={"border border-border sketchy-pill px-3 hover:bg-foreground hover:text-accent-foreground"} onClick={() => dispatch({ type: "increased_no_servings" })} >+</button>
-                            <span className={"ml-auto text-xs text-muted-foreground"}>(from {recipe.servings} servings)</span>
+                            <span className={"ml-auto text-xs text-muted-foreground"}>{`(from ${recipe.servings} serving${recipe.servings > 1? 's' : ''})`}</span>
                         </div>
                     </div>
                 </div>
@@ -127,7 +127,21 @@ export default function RecipePage({ recipe }) {
                                 recipe.ingredients.map((ingredient, index) => (
                                     <div key={'ingredient'+index} className={"ingredient flex items-center gap-2"}>
                                         <input id={index} type={"checkbox"}></input>
-                                        <label htmlFor={index} className={"text-sm capitalize"}>{`${(ingredient.amount * recipe.servings).toFixed(1)}${ingredient.unit === 'g'? ingredient.unit : ' ' + ingredient.unit} ${ingredient.name}`}</label>
+                                        <label htmlFor={index} className="text-sm capitalize">
+                                            {ingredient.amount !== null ? (
+                                                <>
+                                                    <strong>
+                                                        {(ingredient.amount * recipe.servings).toFixed(1).replace(/\.0$/, '')}
+                                                        {ingredient.unit === 'g' ? 'g' : ` ${ingredient.unit}`}
+                                                    </strong>
+                                                    {' '}{ingredient.name}
+                                                </>
+                                            ) : (
+                                                <>
+                                                    {ingredient.name} <strong className="text-gray-500">({ingredient.unit})</strong>
+                                                </>
+                                            )}
+                                        </label>
                                     </div>
                                 ))
                             }
@@ -136,12 +150,12 @@ export default function RecipePage({ recipe }) {
                 </div>
 
                 <div id={"recipe__instructions"}>
-                    <div className={"bg-card border border-border sketchy-sm p-4 flex flex-col gap-3"}>
+                    <div className={"bg-card border border-border sketchy-sm p-4 pb-8 flex flex-col gap-4"}>
                         <h2 className={"text-xl select-none"}>Instructions</h2>
-                        <ol className={"list-decimal list-inside flex flex-col gap-2"}>
+                        <ol className={"list-decimal list-inside flex flex-col gap-4"}>
                             {
                                 recipe.instructions.map((instruction, index) => (
-                                    <li key={index} className={"text-sm"}>{instruction}</li>
+                                    <li key={index}>{instruction}</li>
                                 ))
                             }
                         </ol>
