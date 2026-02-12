@@ -31,8 +31,14 @@ export default function RecipePage({ recipe }) {
         dispatch({type: "toggled_favorite", recipeId: id})
     }
     function hideViewingRecipe() {
-        dispatch({type: "hide_recipe_page"})
+        dispatch({type: "hid_recipe_page"})
     }
+
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+            hideViewingRecipe()
+        }
+    });
 
     return (
         <div id={"recipe-page__overlay"} className={"fixed inset-0 bg-body z-50 overflow-y-scroll flex flex-col items-center"}>
