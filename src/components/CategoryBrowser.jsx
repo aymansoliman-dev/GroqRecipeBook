@@ -8,7 +8,7 @@ export default function CategoryBrowser() {
     categories = ["all", ...categories]
 
     let numberOfRecipes = recipes.length
-    if (searchQuery !== "") numberOfRecipes = recipes.filter((recipe) => recipe.category.includes(searchQuery) || recipe.name.includes(searchQuery) || recipe.ingredients.some(ingredient => ingredient.name.includes(searchQuery))).length
+    if (searchQuery !== "") numberOfRecipes = recipes.filter((recipe) => recipe.category.includes(searchQuery) || recipe.name.includes(searchQuery) || recipe.ingredients.some(ingredient => ingredient.name.includes(searchQuery)) || recipe.cuisine.includes(searchQuery)).length
     else if (category !== "all") numberOfRecipes = recipes.filter((recipe) => recipe.category === category).length
 
     const dispatch = useDispatch()
