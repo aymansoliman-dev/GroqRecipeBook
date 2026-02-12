@@ -6,7 +6,7 @@ export default function RecipesList() {
 
     let recipesList = recipes
     if (searchQuery !== "") {
-        recipesList = recipes.filter((recipe) => recipe.category.includes(searchQuery) || recipe.name.includes(searchQuery) || recipe.ingredients.some(ingredient => ingredient.name.includes(searchQuery)))
+        recipesList = recipes.filter((recipe) => recipe.category.includes(searchQuery) || recipe.name.includes(searchQuery) || recipe.ingredients.some(ingredient => ingredient.name.includes(searchQuery)) || recipe.cuisine.includes(searchQuery))
     }
     else if (category !== "all") {
         recipesList = recipes.filter((recipe) => recipe.category === category)
